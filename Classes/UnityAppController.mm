@@ -335,11 +335,13 @@ extern "C" void UnityCleanupTrampoline()
     if ([shortcutItem.type isEqualToString:@"com.yourcompany.yourapp.firstAction"]) {
         // 处理首个快捷操作
         NSLog(@"First quick action selected");
+        [self saveToDefaults:@"firstActionSelected" value:@"First action was selected"];
         [self executeUnityFunction:@"QuickActionsMgr" method:@"FirstActionMethod"];
         completionHandler(YES);
     } else if ([shortcutItem.type isEqualToString:@"com.yourcompany.yourapp.secondAction"]) {
         // 处理第二个快捷操作
         NSLog(@"Second quick action selected");
+        [self saveToDefaults:@"secondActionSelected" value:@"Second action was selected"];
         [self executeUnityFunction:@"QuickActionsMgr" method:@"SecondActionMethod"];
         completionHandler(YES);
     } else {
@@ -351,16 +353,9 @@ extern "C" void UnityCleanupTrampoline()
     UnitySendMessage([gameObjectName UTF8String], [methodName UTF8String], "");
 }
 
-void setQuickActions() {
-    if (@available(iOS 9.0, *)) {
-        UIApplicationShortcutItem *createExpenseItem = [[UIApplicationShortcutItem alloc] initWithType:@"Key3"
-             localizedTitle:NSLocalizedString(@"Key1", nil)
-          localizedSubtitle:NSLocalizedString(@"Key2", nil)
-                       icon:[UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd]
-                   userInfo:nil];
-
-        [UIApplication sharedApplication].shortcutItems = @[createExpenseItem];
-    }
+- (void)saveToDefaults:(NSString *)key value:(NSString *)value {
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (BOOL)isBackgroundLaunchOptions:(NSDictionary*)launchOptions
