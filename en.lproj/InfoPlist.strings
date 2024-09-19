@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Unity-iPhone
+
+  Created by Squall on 2024/9/19.
+  
+*/
+"UIApplicationShortcutItemTitle1" = "😱Removing Talkit？👀";
+"UIApplicationShortcutItemSubtitle1" = "You can't hide from Flow.";
+"UIApplicationShortcutItemTitle2" = "🌟Do a quick lesson! 📖";
+"UIApplicationShortcutItemSubtitle2" = "It only takes 3 minutes.";

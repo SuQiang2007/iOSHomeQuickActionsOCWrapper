@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh</string>
+	</array>
 	<key>CADisableMinimumFrameDuration</key>
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
@@ -30,16 +35,26 @@
 	<true/>
 	<key>UIApplicationShortcutItems</key>
 	<array>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeCompose</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Perform the first action</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>First Action</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.yourcompany.yourapp.firstAction</string>
-		</dict>
+        <dict>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeCompose</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>UIApplicationShortcutItemSubtitle1</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>UIApplicationShortcutItemTitle1</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.yourcompany.yourapp.firstAction</string>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeCompose</string>
+            <key>UIApplicationShortcutItemSubtitle</key>
+            <string>UIApplicationShortcutItemSubtitle2</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>UIApplicationShortcutItemTitle2</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.yourcompany.yourapp.secondAction</string>
+        </dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen-iPhone</string>

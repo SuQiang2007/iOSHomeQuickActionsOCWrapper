@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Unity-iPhone
+
+  Created by Squall on 2024/9/19.
+  
+*/
+"UIApplicationShortcutItemTitle1" = "😱Talkit 제거하기？";
+"UIApplicationShortcutItemSubtitle1" = "Flow에서 숨길 수 없습니다.";
+"UIApplicationShortcutItemTitle2" = "🌟간단한 레슨을 해보세요!";
+"UIApplicationShortcutItemSubtitle2" = "3분 밖에 걸리지 않습니다.";
