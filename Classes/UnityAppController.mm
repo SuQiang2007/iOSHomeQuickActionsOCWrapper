@@ -312,7 +312,11 @@ extern "C" void UnityCleanupTrampoline()
 
     return foregroundScene ? foregroundScene : backgroundScene;
 }
-
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    //不管APP在后台还是进程被杀死，只要通过主屏快捷操作进来的，都会调用这个方法
+    NSLog(@"name:%@\ntype:%@", shortcutItem.localizedTitle, shortcutItem.type);
+    [self handleShortcutItem:shortcutItem];
+}
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     ::printf("-> applicationDidFinishLaunching()\n");
@@ -329,23 +333,16 @@ extern "C" void UnityCleanupTrampoline()
     [self initUnityWithApplication: application];
     return YES;
 }
-
-//Add this to listen short cut item clicking
-- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler {
+// 处理快捷操作项的公共方法
+- (void)handleShortcutItem:(UIApplicationShortcutItem *)shortcutItem {
     if ([shortcutItem.type isEqualToString:@"com.yourcompany.yourapp.firstAction"]) {
-        // 处理首个快捷操作
         NSLog(@"First quick action selected");
         [self saveToDefaults:@"firstActionSelected" value:@"First action was selected"];
         [self executeUnityFunction:@"QuickActionsMgr" method:@"FirstActionMethod"];
-        completionHandler(YES);
     } else if ([shortcutItem.type isEqualToString:@"com.yourcompany.yourapp.secondAction"]) {
-        // 处理第二个快捷操作
         NSLog(@"Second quick action selected");
         [self saveToDefaults:@"secondActionSelected" value:@"Second action was selected"];
         [self executeUnityFunction:@"QuickActionsMgr" method:@"SecondActionMethod"];
-        completionHandler(YES);
-    } else {
-        completionHandler(NO);
     }
 }
 
